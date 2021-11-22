@@ -11,7 +11,8 @@ This endpoint will give you the list of all your services.
 curl -X POST https://synxhive.com/api/services \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'
 ```
@@ -44,7 +45,8 @@ curl -X POST https://synxhive.com/api/services \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES | 
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
 ## Create service
@@ -66,7 +68,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 curl -X POST https://synxhive.com/api/services/create \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "authToken":"{{authToken}}",
@@ -91,7 +95,9 @@ curl -X POST https://synxhive.com/api/services/create \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | 
 authToken | STRING | YES |
@@ -128,7 +134,9 @@ This endpoint will update a service.
 curl -X POST https://synxhive.com/api/services/update \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "serviceDescription":"{{serviceDescription}}",
   "keywords":"{{keywords}}",
@@ -157,7 +165,9 @@ curl -X POST https://synxhive.com/api/services/update \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | 
 authToken | STRING | YES |
@@ -179,7 +189,9 @@ This endpoint will remove a service.
 curl -X POST https://synxhive.com/api/services/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}"
 }'
 ```
@@ -200,7 +212,9 @@ curl -X POST https://synxhive.com/api/services/remove \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 
 ## Get micropage data
@@ -211,7 +225,11 @@ This endpoint will give micropage data.
 ```shell
 curl -X POST https://synxhive.com/api/services/micropage \ 
 -H "Content-Type: application/json" \ 
--d '{"url":"{{url}}"}'
+-d '{
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}"
+}'
 ```
 
 > **RESPONSE**
@@ -228,7 +246,6 @@ curl -X POST https://synxhive.com/api/services/micropage \
       }
     ]
   },
-  {
   "commandDescription": {
     "description": "Overall description of your command schema",
     "headers": ["Command", "Param1", "Param2", "Description"],
@@ -240,8 +257,7 @@ curl -X POST https://synxhive.com/api/services/micropage \
         "description": "Command will turn on lamp with id 1 with red color"
       }
     ]
-  }
-}
+  },
   "imageUrl": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
 }
 ```
@@ -254,7 +270,9 @@ curl -X POST https://synxhive.com/api/services/micropage \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 
 ## Update micropage
 This endpoint will update a service micropage.
@@ -265,7 +283,9 @@ This endpoint will update a service micropage.
 curl -X POST https://synxhive.com/api/services/micropage-update \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}"
   "token":"{{token}}",
   "description":"{{serviceDescription}}",
   "imageURL":"{{imageUrl}}",
@@ -290,7 +310,9 @@ curl -X POST https://synxhive.com/api/services/micropage-update \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 serviceDescription | STRING | NO |
 schemaDesciption | OBJECT | NO | Stringified. See example below
@@ -343,7 +365,9 @@ This endpoint will add links.
 curl -X POST https://synxhive.com/api/add-links \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "links":{{links}}
 }'
@@ -365,7 +389,9 @@ curl -X POST https://synxhive.com/api/add-links \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domainName/serviceName`
 
@@ -378,7 +404,9 @@ This endpoint will add links.
 curl -X POST https://synxhive.com/api/remove-links \ 
 -H "Content-Type: application/json" \
 -d '{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "links":{{links}}
 }'
@@ -400,6 +428,8 @@ curl -X POST https://synxhive.com/api/remove-links \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domainName/serviceName`

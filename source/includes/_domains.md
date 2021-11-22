@@ -11,7 +11,7 @@ Ths endpoint will give you the list of all your subdomains.
 curl -X POST https://synxhive.com/api/domains \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}"
 }'
@@ -36,12 +36,12 @@ curl -X POST https://synxhive.com/api/domains \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
 
 ## Create subdomain
-Ths endpoint will create a subdomain.
+Ths endpoint will create a subdomain. Each created domain should be activated.
 
 > **REQUEST**
 
@@ -49,7 +49,7 @@ Ths endpoint will create a subdomain.
 curl -X POST https://synxhive.com/api/domains/create \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}"
@@ -72,13 +72,13 @@ curl -X POST https://synxhive.com/api/domains/create \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
 domainName | STRING | YES |
 
 ## Delete subdomain
-Ths endpoint will delete a subdomain.
+Ths endpoint will delete a subdomain. Only active domain can be deleted.
 
 > **REQUEST**
 
@@ -86,7 +86,7 @@ Ths endpoint will delete a subdomain.
 curl -X POST https://synxhive.com/api/domains/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}"
@@ -109,7 +109,7 @@ curl -X POST https://synxhive.com/api/domains/delete \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
 domainName | STRING | YES |
@@ -123,7 +123,7 @@ Ths endpoint will activate a subdomain.
 curl -X POST https://synxhive.com/api/domains/activate \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}",
@@ -151,7 +151,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
 domainName | STRING | YES |
@@ -166,7 +166,7 @@ Ths endpoint will deactivate a subdomain.
 curl -X POST https://synxhive.com/api/domains/dactivate \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}",
@@ -194,7 +194,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
 domainName | STRING | YES |

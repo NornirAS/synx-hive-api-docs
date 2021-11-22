@@ -107,6 +107,7 @@ This endpoint will finally register user in the system.
 curl -X POST https://synxhive.com/api/synxpass/register-user \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "rootDomain": "{{rootDomain}}",
   "username": "{{username}}",
   "authToken": "{{authToken}}",
   "password": "{{password}}"
@@ -141,6 +142,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+rootDomain | STRING | YES | For example cioty.com
 username | STRING | YES | Email
 password | STRING | YES |
 authToken | STRING | YES |
