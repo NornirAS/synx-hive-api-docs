@@ -62,7 +62,7 @@ curl -X POST https://synxhive.com/api/synxpass/verify-user \
 -d '{
   "username": "{{username}}",
   "authToken": "{{authToken}}",
-  "verification": "{{verificationToken}}"
+  "verificationToken": "{{verificationToken}}"
 }'
 ```
 
