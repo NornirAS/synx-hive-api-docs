@@ -620,6 +620,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/synxpass/register-user <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "rootDomain": "{{rootDomain}}",
   "username": "{{username}}",
   "authToken": "{{authToken}}",
   "password": "{{password}}"
@@ -653,6 +654,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
 <tr>
 <td>username</td>
 <td>STRING</td>
@@ -833,7 +840,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}"
 }'</span>
@@ -859,10 +866,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -878,7 +885,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </tbody></table>
 <h2 id='create-subdomain'>Create subdomain</h2>
-<p>Ths endpoint will create a subdomain.</p>
+<p>Ths endpoint will create a subdomain. Each created domain should be activated.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
@@ -886,7 +893,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/create <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}"
@@ -910,10 +917,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -935,7 +942,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </tbody></table>
 <h2 id='delete-subdomain'>Delete subdomain</h2>
-<p>Ths endpoint will delete a subdomain.</p>
+<p>Ths endpoint will delete a subdomain. Only active domain can be deleted.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
@@ -943,7 +950,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/delete <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}"
@@ -967,10 +974,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -1000,7 +1007,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/activate <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}",
@@ -1029,10 +1036,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -1068,7 +1075,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/dactivate <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "domainName":"{{domainName}}",
@@ -1097,10 +1104,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -1138,7 +1145,8 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'</span>
 </code></pre></div>
@@ -1172,10 +1180,16 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
 </tr>
 <tr>
 <td>token</td>
@@ -1199,7 +1213,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/create <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "authToken":"{{authToken}}",
@@ -1229,10 +1245,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
@@ -1322,7 +1350,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/update <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "serviceDescription":"{{serviceDescription}}",
   "keywords":"{{keywords}}",
@@ -1352,10 +1382,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
@@ -1433,7 +1475,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/remove <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}"
 }'</span>
 </code></pre></div>
@@ -1455,10 +1499,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
@@ -1475,7 +1531,11 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/micropage <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
-<span class="nt">-d</span> <span class="s1">'{"url":"{{url}}"}'</span>
+<span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}"
+}'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>RESPONSE</strong></p>
@@ -1491,7 +1551,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
   </span><span class="nl">"commandDescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overall description of your command schema"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Command"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">],</span><span class="w">
@@ -1503,8 +1562,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
         </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Command will turn on lamp with id 1 with red color"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
@@ -1519,10 +1577,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 </tbody></table>
 <h2 id='update-micropage'>Update micropage</h2>
@@ -1534,7 +1604,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/micropage-update <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}"
   "token":"{{token}}",
   "description":"{{serviceDescription}}",
   "imageURL":"{{imageUrl}}",
@@ -1560,10 +1632,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
@@ -1638,7 +1722,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/add-links <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "links":{{links}}
 }'</span>
@@ -1661,10 +1747,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
@@ -1688,7 +1786,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/remove-links <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 <span class="nt">-d</span> <span class="s1">'{
-  "url":"{{url}}",
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
   "token":"{{token}}",
   "links":{{links}}
 }'</span>
@@ -1711,10 +1811,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
