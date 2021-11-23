@@ -11,6 +11,7 @@ Ths endpoint will give you the list of all your ghosts.
 curl -X POST https://synxhive.com/api/ghosts \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'
@@ -37,6 +38,7 @@ curl -X POST https://synxhive.com/api/ghosts \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
@@ -127,6 +129,7 @@ Ths endpoint will give the list of ghosts waiting for your approval.
 curl -X POST https://synxhive.com/api/ghosts/untied \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}"
@@ -153,7 +156,9 @@ curl -X POST https://synxhive.com/api/ghosts/untied \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-url | STRING | YES | Url of the Hive you make request against
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 
