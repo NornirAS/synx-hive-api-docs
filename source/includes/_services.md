@@ -11,7 +11,6 @@ This endpoint will give you the list of all your services.
 curl -X POST https://synxhive.com/api/services \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'
@@ -45,7 +44,6 @@ curl -X POST https://synxhive.com/api/services \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES | 
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
