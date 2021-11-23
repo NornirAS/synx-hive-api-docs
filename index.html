@@ -1145,6 +1145,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'</span>
@@ -1178,6 +1179,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
 <tr>
 <td>rootDomain</td>
 <td>STRING</td>
@@ -1845,6 +1852,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'</span>
@@ -1871,6 +1879,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
 <tr>
 <td>rootDomain</td>
 <td>STRING</td>
@@ -2021,6 +2035,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/untied <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}"
@@ -2048,10 +2063,22 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
+<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
-<td>Url of the Hive you make request against</td>
+<td></td>
+</tr>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>serviceName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
 </tr>
 <tr>
 <td>token</td>
