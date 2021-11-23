@@ -893,10 +893,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/create <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
-  "username":"{{username}}",
-  "domainName":"{{domainName}}"
+  "username":"{{username}}"
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -917,6 +917,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
@@ -934,12 +940,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>YES</td>
 <td></td>
 </tr>
-<tr>
-<td>domainName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
 </tbody></table>
 <h2 id='delete-subdomain'>Delete subdomain</h2>
 <p>Ths endpoint will delete a subdomain. Only active domain can be deleted.</p>
@@ -950,10 +950,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/delete <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
-  "username":"{{username}}",
-  "domainName":"{{domainName}}"
+  "username":"{{username}}"
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -974,6 +974,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
@@ -991,12 +997,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>YES</td>
 <td></td>
 </tr>
-<tr>
-<td>domainName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
 </tbody></table>
 <h2 id='activate-subdomain'>Activate subdomain</h2>
 <p>Ths endpoint will activate a subdomain.</p>
@@ -1007,10 +1007,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/activate <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
-  "domainName":"{{domainName}}",
   "authToken":"{{authToken}}"
 }'</span>
 </code></pre></div>
@@ -1036,6 +1036,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
@@ -1049,12 +1055,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 <tr>
 <td>username</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1075,10 +1075,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/domains/dactivate <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
-  "domainName":"{{domainName}}",
   "authToken":"{{authToken}}"
 }'</span>
 </code></pre></div>
@@ -1104,6 +1104,12 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
+<td>domainName</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
 <td>rootDomain</td>
 <td>STRING</td>
 <td>YES</td>
@@ -1117,12 +1123,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 <tr>
 <td>username</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>domainName</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
