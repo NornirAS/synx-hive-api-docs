@@ -49,10 +49,10 @@ Ths endpoint will create a subdomain. Each created domain should be activated.
 curl -X POST https://synxhive.com/api/domains/create \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
-  "username":"{{username}}",
-  "domainName":"{{domainName}}"
+  "username":"{{username}}"
 }'
 ```
 
@@ -72,10 +72,10 @@ curl -X POST https://synxhive.com/api/domains/create \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
-domainName | STRING | YES |
 
 ## Delete subdomain
 Ths endpoint will delete a subdomain. Only active domain can be deleted.
@@ -86,10 +86,10 @@ Ths endpoint will delete a subdomain. Only active domain can be deleted.
 curl -X POST https://synxhive.com/api/domains/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
-  "username":"{{username}}",
-  "domainName":"{{domainName}}"
+  "username":"{{username}}"
 }'
 ```
 
@@ -109,10 +109,10 @@ curl -X POST https://synxhive.com/api/domains/delete \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
-domainName | STRING | YES |
 
 ## Activate subdomain
 Ths endpoint will activate a subdomain.
@@ -123,10 +123,10 @@ Ths endpoint will activate a subdomain.
 curl -X POST https://synxhive.com/api/domains/activate \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
-  "domainName":"{{domainName}}",
   "authToken":"{{authToken}}"
 }'
 ```
@@ -151,10 +151,10 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
-domainName | STRING | YES |
 authToken | STRING | YES |
 
 ## Deactivate subdomain
@@ -166,10 +166,10 @@ Ths endpoint will deactivate a subdomain.
 curl -X POST https://synxhive.com/api/domains/dactivate \ 
 -H "Content-Type: application/json" \ 
 -d '{
+  "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}",
-  "domainName":"{{domainName}}",
   "authToken":"{{authToken}}"
 }'
 ```
@@ -194,8 +194,8 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
+domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 username | STRING | YES |
-domainName | STRING | YES |
 authToken | STRING | YES |
