@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/Users/glazunov/Documents/nornir/synx/synx-hive-api-docs/source/images/logo-horizontal.png" alt="Synx Hive" width="50%">
+  <img src="source/images/logo-horizontal.png" alt="Synx Hive" width="30%">
 </p>
 
 # Synx Hive API docs
