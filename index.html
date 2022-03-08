@@ -342,6 +342,9 @@
                   <li>
                     <a href="#new-password" class="toc-h2 toc-link" data-title="New password">New password</a>
                   </li>
+                  <li>
+                    <a href="#delete-user" class="toc-h2 toc-link" data-title="Delete user">Delete user</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -829,7 +832,39 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Temporary password which you should get from url that you got on your email</td>
 </tr>
 </tbody></table>
-<h1 id='domains'>Domains</h1>
+
+<aside class="notice">
+This endpoint can be used only by the root domain owner as it require authToken.
+</aside>
+<h2 id='delete-user'>Delete user</h2>
+<p>This endpoint will remove user from the system.</p>
+
+<blockquote>
+<p><strong>REQUEST</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/synxpass/delete-user <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-d</span> <span class="s1">'{
+  "rootDomain": "{{rootDomain}}",
+  "username": "{{username}}",
+  "authToken": "{{authToken}}",
+  "token": "{{token}}"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>RESPONSE</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Server got your request, but something went wrong</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='domains'>Domains</h1>
 <p>Domain related endpoints.</p>
 <h2 id='get-subdomains'>Get subdomains</h2>
 <p>Ths endpoint will give you the list of all your subdomains.</p>
