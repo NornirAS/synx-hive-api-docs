@@ -269,3 +269,39 @@ Parameter | Type | Mandatory | Description
 username | STRING | YES | Email
 password | STRING | YES |
 tempPassword | STRING | YES | Temporary password which you should get from url that you got on your email
+
+<aside class="notice">
+This endpoint can be used only by the root domain owner as it require authToken.
+</aside>
+
+## Delete user
+This endpoint will remove user from the system.
+
+> **REQUEST**
+
+```shell
+curl -X POST https://synxhive.com/api/synxpass/delete-user \ 
+-H "Content-Type: application/json" \ 
+-d '{
+  "rootDomain": "{{rootDomain}}",
+  "username": "{{username}}",
+  "authToken": "{{authToken}}",
+  "token": "{{token}}"
+}'
+```
+
+> **RESPONSE**
+
+```json
+{
+  "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "error": "Error"
+}
+```
