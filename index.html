@@ -832,10 +832,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Temporary password which you should get from url that you got on your email</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-This endpoint can be used only by the root domain owner as it require authToken.
-</aside>
 <h2 id='delete-user'>Delete user</h2>
 <p>This endpoint will remove user from the system.</p>
 
@@ -864,7 +860,47 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='domains'>Domains</h1>
+</span></code></pre></div>
+<aside class="notice">
+This endpoint can be used only by the root domain owner as it require authToken.
+</aside>
+<h3 id='http-request-7'>HTTP request</h3>
+<p><strong><code>POST /api/synxpass/delete-user</code></strong></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rootDomain</td>
+<td>STRING</td>
+<td>YES</td>
+<td>For example cioty.com</td>
+</tr>
+<tr>
+<td>username</td>
+<td>STRING</td>
+<td>YES</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>token</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>authToken</td>
+<td>STRING</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='domains'>Domains</h1>
 <p>Domain related endpoints.</p>
 <h2 id='get-subdomains'>Get subdomains</h2>
 <p>Ths endpoint will give you the list of all your subdomains.</p>
