@@ -270,10 +270,6 @@ username | STRING | YES | Email
 password | STRING | YES |
 tempPassword | STRING | YES | Temporary password which you should get from url that you got on your email
 
-<aside class="notice">
-This endpoint can be used only by the root domain owner as it require authToken.
-</aside>
-
 ## Delete user
 This endpoint will remove user from the system.
 
@@ -305,3 +301,20 @@ curl -X POST https://synxhive.com/api/synxpass/delete-user \
   "error": "Error"
 }
 ```
+
+<aside class="notice">
+This endpoint can be used only by the root domain owner as it require authToken.
+</aside>
+
+### HTTP request
+
+**`POST /api/synxpass/delete-user`**
+
+### Query Parameters
+
+Parameter | Type | Mandatory | Description
+--------- | ---- | --------- | -----------
+rootDomain | STRING | YES | For example cioty.com
+username | STRING | YES | Email
+token | STRING | YES |
+authToken | STRING | YES |
