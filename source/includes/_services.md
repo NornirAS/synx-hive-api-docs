@@ -79,8 +79,8 @@ curl -X POST https://synxhive.com/api/services/create \
   "serviceSchema":"{{serviceSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "inlinePreScript":"{{inlinePreScript}}",
-  "inlinePostScript":"{{inlinePostScript}}",
+  "preInlineScript":"{{preInlineScript}}",
+  "postInlineScript":"{{postInlineScript}}",
   "webJS":"{{webJS}}"
 }'
 ```
@@ -106,8 +106,8 @@ keywords | STRING[] | NO | Array where each keyword is a `STRING`
 serviceSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
 timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
-inlinePreScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
-inlinePostScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
+preInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
+postInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 webJS | STRING | NO | URL to extarnal stored `CDN` JavaScript code that will visualize the incomming data
 
 ### Examples
@@ -143,8 +143,8 @@ curl -X POST https://synxhive.com/api/services/update \
   "serviceSchema":"{{serviceSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "inlinePreScript":"{{inlinePreScript}}",
-  "inlinePostScript":"{{inlinePostScript}}",
+  "preInlineScript":"{{preInlineScript}}",
+  "postInlineScript":"{{postInlineScript}}",
   "webJS":"{{webJS}}"
 }'
 ```
@@ -176,8 +176,8 @@ keywords | STRING[] | NO | Array where each keyword is a `STRING`
 serviceSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
 timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
-inlinePreScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
-inlinePostScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
+preInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
+postInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 webJS | STRING | NO | URL to extarnal stored `CDN` JavaScript code that will visualize the incomming data
 
 ## Remove service
