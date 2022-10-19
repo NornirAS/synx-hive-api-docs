@@ -1295,8 +1295,8 @@ This endpoint can be used only by the root domain owner as it require authToken.
   "serviceSchema":"{{serviceSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "inlinePreScript":"{{inlinePreScript}}",
-  "inlinePostScript":"{{inlinePostScript}}",
+  "preInlineScript":"{{preInlineScript}}",
+  "postInlineScript":"{{postInlineScript}}",
   "webJS":"{{webJS}}"
 }'</span>
 </code></pre></div>
@@ -1382,13 +1382,13 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
 <tr>
-<td>inlinePreScript</td>
+<td>preInlineScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data before it&#39;s get to the service</td>
 </tr>
 <tr>
-<td>inlinePostScript</td>
+<td>postInlineScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data when data will leave a service</td>
@@ -1430,8 +1430,8 @@ This endpoint can be used only by the root domain owner as it require authToken.
   "serviceSchema":"{{serviceSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "inlinePreScript":"{{inlinePreScript}}",
-  "inlinePostScript":"{{inlinePostScript}}",
+  "preInlineScript":"{{preInlineScript}}",
+  "postInlineScript":"{{postInlineScript}}",
   "webJS":"{{webJS}}"
 }'</span>
 </code></pre></div>
@@ -1519,13 +1519,13 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
 <tr>
-<td>inlinePreScript</td>
+<td>preInlineScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data before it&#39;s get to the service</td>
 </tr>
 <tr>
-<td>inlinePostScript</td>
+<td>postInlineScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data when data will leave a service</td>
