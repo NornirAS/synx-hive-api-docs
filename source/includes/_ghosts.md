@@ -282,22 +282,34 @@ curl -X POST https://synxhive.com/api/ghosts/status \
 
 ```json
 {
-  "Linked To": {
-    "test/example": true,
-    // ...
+  "data": {
+    "morphedGhosts": [
+      {
+        "ghostAddress": "hello/world/1",
+        "active": true
+      }
+    ],
+    "readAccess": [
+      {
+        "email": "john@example.com",
+        "active": true
+      }
+    ],
+    "linkedTo": [
+      {
+        "serviceAddress": "hello/world",
+        "active": true
+      }
+    ],
+    "linkedFrom": [
+      {
+        "serviceAddress": "hello/world",
+        "active": true
+      }
+    ]
   },
-  "Secondary Service": {
-    "domain/service/objectID": true,
-    // ...
-  },
-  "Read Access": {
-    "username": true,
-    // ...
-  },
-  "Linked From": {
-    "CRYPTO/EXAMPLE": true,
-    // ...
-  }
+  "error": false,
+  "message": "Success",
 }
 ```
 
