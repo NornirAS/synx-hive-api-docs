@@ -11,7 +11,7 @@ This endpoint will give you the list of all your services.
 curl -X POST https://synxhive.com/api/services \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'
@@ -23,16 +23,13 @@ curl -X POST https://synxhive.com/api/services \
 [
   {
     "domain": "example",
-    "serviceName": "example",
-    "serviceSchema": "<RTW><TXT></TXT></RTW>",
+    "service": "example",
+    "dataSchema": "<RTW><TXT></TXT></RTW>",
     "ghosts": "0",
-    "serviceDescription": "VXBkYXRlZA==",
-    "keywords": "hello",
     "commandSchema": "<CMD><ACTION></ACTION><PARAM1></PARAM1><PARAM2></PARAM2></CMD>",
-    "webJS": "",
     "timeout": "90",
-    "postInlineScript": "aGVsbG8=",
-    "preInlineScript": "aGVsbG8="
+    "postScript": "aGVsbG8=",
+    "preScript": "aGVsbG8="
   }
 ]
 ```
@@ -68,20 +65,17 @@ This endpoint can be used only by the root domain owner as it require authToken.
 curl -X POST https://synxhive.com/api/services/create \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "authToken":"{{authToken}}",
-  "serviceDescription":"{{serviceDescription}}",
-  "keywords":{{keywords}},
-  "serviceSchema":"{{serviceSchema}}",
+  "dataSchema":"{{dataSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "preInlineScript":"{{preInlineScript}}",
-  "postInlineScript":"{{postInlineScript}}",
-  "webJS":"{{webJS}}"
+  "preScript":"{{preScript}}",
+  "postScript":"{{postScript}}",
 }'
 ```
 
@@ -95,20 +89,17 @@ curl -X POST https://synxhive.com/api/services/create \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | 
 authToken | STRING | YES |
-serviceDescription | STRING | NO | `BASE64` encoded
-keywords | STRING[] | NO | Array where each keyword is a `STRING`
-serviceSchema | STRING | YES | See example below
+dataSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
 timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
-preInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
-postInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
-webJS | STRING | NO | URL to extarnal stored `CDN` JavaScript code that will visualize the incomming data
+preScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
+postScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 
 ### Examples
 
@@ -134,18 +125,15 @@ This endpoint will update a service.
 curl -X POST https://synxhive.com/api/services/update \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
-  "serviceDescription":"{{serviceDescription}}",
-  "keywords":"{{keywords}}",
-  "serviceSchema":"{{serviceSchema}}",
+  "dataSchema":"{{dataSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "preInlineScript":"{{preInlineScript}}",
-  "postInlineScript":"{{postInlineScript}}",
-  "webJS":"{{webJS}}"
+  "preScript":"{{preScript}}",
+  "postScript":"{{postScript}}",
 }'
 ```
 
@@ -165,20 +153,17 @@ curl -X POST https://synxhive.com/api/services/update \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | 
 authToken | STRING | YES |
-serviceDescription | STRING | NO | `BASE64` encoded
-keywords | STRING[] | NO | Array where each keyword is a `STRING`
-serviceSchema | STRING | YES | See example below
+dataSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
 timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
-preInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
-postInlineScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
-webJS | STRING | NO | URL to extarnal stored `CDN` JavaScript code that will visualize the incomming data
+preScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
+postScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 
 ## Remove service
 This endpoint will remove a service.
@@ -189,9 +174,9 @@ This endpoint will remove a service.
 curl -X POST https://synxhive.com/api/services/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{serviceName}}",
   "token":"{{token}}"
 }'
 ```
@@ -212,12 +197,12 @@ curl -X POST https://synxhive.com/api/services/remove \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 
-## Get micropage data
+<!-- ## Get micropage data
 This endpoint will give micropage data.
 
 > **REQUEST**
@@ -354,7 +339,7 @@ imageUrl | STRING | NO | Image which can represent service
     ]
   }
 }
-```
+``` -->
 
 ## Add links
 This endpoint will add links.
@@ -365,9 +350,9 @@ This endpoint will add links.
 curl -X POST https://synxhive.com/api/add-links \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "links":{{links}}
 }'
@@ -389,11 +374,11 @@ curl -X POST https://synxhive.com/api/add-links \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
-links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domainName/serviceName`
+links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domain/service`
 
 ## Remove links
 This endpoint will add links.
@@ -404,9 +389,9 @@ This endpoint will add links.
 curl -X POST https://synxhive.com/api/remove-links \ 
 -H "Content-Type: application/json" \
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "links":{{links}}
 }'
@@ -428,8 +413,8 @@ curl -X POST https://synxhive.com/api/remove-links \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
-links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domainName/serviceName`
+links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domain/service`
