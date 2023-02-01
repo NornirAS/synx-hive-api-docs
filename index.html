@@ -383,12 +383,6 @@
                     <a href="#remove-service" class="toc-h2 toc-link" data-title="Remove service">Remove service</a>
                   </li>
                   <li>
-                    <a href="#get-micropage-data" class="toc-h2 toc-link" data-title="Get micropage data">Get micropage data</a>
-                  </li>
-                  <li>
-                    <a href="#update-micropage" class="toc-h2 toc-link" data-title="Update micropage">Update micropage</a>
-                  </li>
-                  <li>
                     <a href="#add-links" class="toc-h2 toc-link" data-title="Add links">Add links</a>
                   </li>
                   <li>
@@ -1216,7 +1210,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'</span>
@@ -1227,16 +1221,13 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"serviceSchema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;RTW&gt;&lt;TXT&gt;&lt;/TXT&gt;&lt;/RTW&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dataSchema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;RTW&gt;&lt;TXT&gt;&lt;/TXT&gt;&lt;/RTW&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ghosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"serviceDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VXBkYXRlZA=="</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"commandSchema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;CMD&gt;&lt;ACTION&gt;&lt;/ACTION&gt;&lt;PARAM1&gt;&lt;/PARAM1&gt;&lt;PARAM2&gt;&lt;/PARAM2&gt;&lt;/CMD&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"webJS"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"postInlineScript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aGVsbG8="</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"preInlineScript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aGVsbG8="</span><span class="w">
+    </span><span class="nl">"postScript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aGVsbG8="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preScript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aGVsbG8="</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
@@ -1284,20 +1275,17 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/create <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "authToken":"{{authToken}}",
-  "serviceDescription":"{{serviceDescription}}",
-  "keywords":{{keywords}},
-  "serviceSchema":"{{serviceSchema}}",
+  "dataSchema":"{{dataSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "preInlineScript":"{{preInlineScript}}",
-  "postInlineScript":"{{postInlineScript}}",
-  "webJS":"{{webJS}}"
+  "preScript":"{{preScript}}",
+  "postScript":"{{postScript}}",
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -1316,7 +1304,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>domainName</td>
+<td>domain</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1328,7 +1316,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>For example cioty.com</td>
 </tr>
 <tr>
-<td>serviceName</td>
+<td>service</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1352,19 +1340,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td></td>
 </tr>
 <tr>
-<td>serviceDescription</td>
-<td>STRING</td>
-<td>NO</td>
-<td><code>BASE64</code> encoded</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>STRING[]</td>
-<td>NO</td>
-<td>Array where each keyword is a <code>STRING</code></td>
-</tr>
-<tr>
-<td>serviceSchema</td>
+<td>dataSchema</td>
 <td>STRING</td>
 <td>YES</td>
 <td>See example below</td>
@@ -1382,22 +1358,16 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
 <tr>
-<td>preInlineScript</td>
+<td>preScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data before it&#39;s get to the service</td>
 </tr>
 <tr>
-<td>postInlineScript</td>
+<td>postScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data when data will leave a service</td>
-</tr>
-<tr>
-<td>webJS</td>
-<td>STRING</td>
-<td>NO</td>
-<td>URL to extarnal stored <code>CDN</code> JavaScript code that will visualize the incomming data</td>
 </tr>
 </tbody></table>
 <h3 id='examples'>Examples</h3>
@@ -1421,18 +1391,15 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/update <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
-  "serviceDescription":"{{serviceDescription}}",
-  "keywords":"{{keywords}}",
-  "serviceSchema":"{{serviceSchema}}",
+  "dataSchema":"{{dataSchema}}",
   "commandSchema":"{{commandSchema}}",
   "timeout":"{{timeout}}",
-  "preInlineScript":"{{preInlineScript}}",
-  "postInlineScript":"{{postInlineScript}}",
-  "webJS":"{{webJS}}"
+  "preScript":"{{preScript}}",
+  "postScript":"{{postScript}}",
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -1453,7 +1420,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>domainName</td>
+<td>domain</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1465,7 +1432,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>For example cioty.com</td>
 </tr>
 <tr>
-<td>serviceName</td>
+<td>service</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1489,19 +1456,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td></td>
 </tr>
 <tr>
-<td>serviceDescription</td>
-<td>STRING</td>
-<td>NO</td>
-<td><code>BASE64</code> encoded</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>STRING[]</td>
-<td>NO</td>
-<td>Array where each keyword is a <code>STRING</code></td>
-</tr>
-<tr>
-<td>serviceSchema</td>
+<td>dataSchema</td>
 <td>STRING</td>
 <td>YES</td>
 <td>See example below</td>
@@ -1519,22 +1474,16 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
 <tr>
-<td>preInlineScript</td>
+<td>preScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data before it&#39;s get to the service</td>
 </tr>
 <tr>
-<td>postInlineScript</td>
+<td>postScript</td>
 <td>STRING</td>
 <td>NO</td>
 <td><code>BASE64</code> encoded JavaScript code that will transform data when data will leave a service</td>
-</tr>
-<tr>
-<td>webJS</td>
-<td>STRING</td>
-<td>NO</td>
-<td>URL to extarnal stored <code>CDN</code> JavaScript code that will visualize the incomming data</td>
 </tr>
 </tbody></table>
 <h2 id='remove-service'>Remove service</h2>
@@ -1546,9 +1495,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/remove <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{serviceName}}",
   "token":"{{token}}"
 }'</span>
 </code></pre></div>
@@ -1570,7 +1519,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>domainName</td>
+<td>domain</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1582,7 +1531,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>For example cioty.com</td>
 </tr>
 <tr>
-<td>serviceName</td>
+<td>service</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1594,87 +1543,73 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='get-micropage-data'>Get micropage data</h2>
-<p>This endpoint will give micropage data.</p>
 
-<blockquote>
-<p><strong>REQUEST</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/micropage <span class="se">\ </span>
-<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
-<span class="nt">-d</span> <span class="s1">'{
+<!-- ## Get micropage data
+This endpoint will give micropage data.
+
+> **REQUEST**
+
+```shell
+curl -X POST https://synxhive.com/api/services/micropage \ 
+-H "Content-Type: application/json" \ 
+-d '{
   "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "serviceName":"{{serviceName}}"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>RESPONSE</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"serviceDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"schemaDescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overall description of your data schema"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"element name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"element descrition"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"commandDescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overall description of your command schema"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Command"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"turn on"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"param1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"param2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Command will turn on lamp with id 1 with red color"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
-<p><strong><code>POST /api/services/micropage</code></strong></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Mandatory</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>domainName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>rootDomain</td>
-<td>STRING</td>
-<td>YES</td>
-<td>For example cioty.com</td>
-</tr>
-<tr>
-<td>serviceName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id='update-micropage'>Update micropage</h2>
-<p>This endpoint will update a service micropage.</p>
+}'
+```
 
-<blockquote>
-<p><strong>REQUEST</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/micropage-update <span class="se">\ </span>
-<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
-<span class="nt">-d</span> <span class="s1">'{
+> **RESPONSE**
+
+```json
+{
+  "serviceDescription": "description",
+  "schemaDescription": {
+    "description": "Overall description of your data schema",
+    "elements": [
+      {
+        "element": "element name",
+        "description": "element descrition"
+      }
+    ]
+  },
+  "commandDescription": {
+    "description": "Overall description of your command schema",
+    "headers": ["Command", "Param1", "Param2", "Description"],
+    "commands": [
+      {
+        "command": "turn on",
+        "param1": "id",
+        "param2": "color",
+        "description": "Command will turn on lamp with id 1 with red color"
+      }
+    ]
+  },
+  "imageUrl": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+}
+```
+
+### HTTP Request
+
+**`POST /api/services/micropage`**
+
+### Query Parameters
+
+Parameter | Type | Mandatory | Description
+--------- | ---- | --------- | -----------
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
+
+## Update micropage
+This endpoint will update a service micropage.
+
+> **REQUEST**
+
+```shell
+curl -X POST https://synxhive.com/api/services/micropage-update \ 
+-H "Content-Type: application/json" \ 
+-d '{
   "domainName":"{{domainName}}",
   "rootDomain":"{{rootDomain}}",
   "serviceName":"{{serviceName}}"
@@ -1683,108 +1618,71 @@ This endpoint can be used only by the root domain owner as it require authToken.
   "imageURL":"{{imageUrl}}",
   "schemaDescription":"{{schemaDescription}}",
   "commandDescription":"{{commandDescription}}"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>RESPONSE</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
-<p><strong><code>POST /api/services/micropage-update</code></strong></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Mandatory</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>domainName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>rootDomain</td>
-<td>STRING</td>
-<td>YES</td>
-<td>For example cioty.com</td>
-</tr>
-<tr>
-<td>serviceName</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>token</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
-<td>serviceDescription</td>
-<td>STRING</td>
-<td>NO</td>
-<td></td>
-</tr>
-<tr>
-<td>schemaDesciption</td>
-<td>OBJECT</td>
-<td>NO</td>
-<td>Stringified. See example below</td>
-</tr>
-<tr>
-<td>commandDescription</td>
-<td>OBJECT</td>
-<td>NO</td>
-<td>Stringified. See example below</td>
-</tr>
-<tr>
-<td>imageUrl</td>
-<td>STRING</td>
-<td>NO</td>
-<td>Image which can represent service</td>
-</tr>
-</tbody></table>
-<h3 id='example'>Example</h3>
-<blockquote>
-<p><strong>Schema description OBJECT</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"schemaDescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overall description of your data schema"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"element name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"element descrition"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p><strong>Command description OBJECT</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"commandDescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overall description of your command schema"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Command"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Param2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"turn on"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"param1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"param2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Command will turn on lamp with id 1 with red color"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='add-links'>Add links</h2>
+}'
+```
+
+> **RESPONSE**
+
+```json
+{
+  "message": "Success"
+}
+```
+
+### HTTP Request
+
+**`POST /api/services/micropage-update`**
+
+### Query Parameters
+
+Parameter | Type | Mandatory | Description
+--------- | ---- | --------- | -----------
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
+token | STRING | YES |
+serviceDescription | STRING | NO |
+schemaDesciption | OBJECT | NO | Stringified. See example below
+commandDescription | OBJECT | NO | Stringified. See example below
+imageUrl | STRING | NO | Image which can represent service
+
+### Example
+
+> **Schema description OBJECT**
+
+```json
+{
+  "schemaDescription": {
+    "description": "Overall description of your data schema",
+    "elements": [
+      {
+        "element": "element name",
+        "description": "element descrition"
+      }
+    ]
+  },
+}
+```
+
+> **Command description OBJECT**
+
+```json
+{
+  "commandDescription": {
+    "description": "Overall description of your command schema",
+    "headers": ["Command", "Param1", "Param2", "Description"],
+    "commands": [
+      {
+        "command": "turn on",
+        "param1": "id",
+        "param2": "color",
+        "description": "Command will turn on lamp with id 1 with red color"
+      }
+    ]
+  }
+}
+``` -->
+<h2 id='add-links'>Add links</h2>
 <p>This endpoint will add links.</p>
 
 <blockquote>
@@ -1793,9 +1691,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/add-links <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "links":{{links}}
 }'</span>
@@ -1806,9 +1704,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
 <p><strong><code>POST /api/services/add-links</code></strong></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1818,7 +1716,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>domainName</td>
+<td>domain</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1830,7 +1728,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>For example cioty.com</td>
 </tr>
 <tr>
-<td>serviceName</td>
+<td>service</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1845,7 +1743,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>links</td>
 <td>STRING[]</td>
 <td>YES</td>
-<td>Array where each link is a <code>STRING</code>, link is written as <code>domainName/serviceName</code></td>
+<td>Array where each link is a <code>STRING</code>, link is written as <code>domain/service</code></td>
 </tr>
 </tbody></table>
 <h2 id='remove-links'>Remove links</h2>
@@ -1857,9 +1755,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/remove-links <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 <span class="nt">-d</span> <span class="s1">'{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "links":{{links}}
 }'</span>
@@ -1870,9 +1768,9 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
 <p><strong><code>POST /api/services/remove-links</code></strong></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1882,7 +1780,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 </thead><tbody>
 <tr>
-<td>domainName</td>
+<td>domain</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1894,7 +1792,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>For example cioty.com</td>
 </tr>
 <tr>
-<td>serviceName</td>
+<td>service</td>
 <td>STRING</td>
 <td>YES</td>
 <td></td>
@@ -1909,7 +1807,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td>links</td>
 <td>STRING[]</td>
 <td>YES</td>
-<td>Array where each link is a <code>STRING</code>, link is written as <code>domainName/serviceName</code></td>
+<td>Array where each link is a <code>STRING</code>, link is written as <code>domain/service</code></td>
 </tr>
 </tbody></table>
 <h1 id='ghosts'>Ghosts</h1>
