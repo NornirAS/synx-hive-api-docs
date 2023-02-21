@@ -341,20 +341,19 @@ imageUrl | STRING | NO | Image which can represent service
 }
 ``` -->
 
-## Add links
+## Get links
 This endpoint will add links.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/add-links \ 
--H "Content-Type: application/json" \ 
+curl -X POST https://synxhive.com/api/services/links \ 
+-H "Content-Type: application/json" \
 -d '{
   "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
   "service":"{{service}}",
-  "token":"{{token}}",
-  "links":{{links}}
+  "token":"{{token}}"
 }'
 ```
 
@@ -362,13 +361,20 @@ curl -X POST https://synxhive.com/api/add-links \
 
 ```json
 {
+  "data": [{
+    "serviceAddress": "domain/service",
+    "active": true
+  },
+  // ...
+  ],
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/services/add-links`**
+**`POST /api/services/links/update`**
 
 ### Query Parameters
 
@@ -380,13 +386,14 @@ service | STRING | YES |
 token | STRING | YES |
 links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domain/service`
 
-## Remove links
+
+## Update links
 This endpoint will add links.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/remove-links \ 
+curl -X POST https://synxhive.com/api/services/links/update \ 
 -H "Content-Type: application/json" \
 -d '{
   "domain":"{{domain}}",
@@ -401,13 +408,15 @@ curl -X POST https://synxhive.com/api/remove-links \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/services/remove-links`**
+**`POST /api/services/links/update`**
 
 ### Query Parameters
 
