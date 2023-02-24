@@ -433,13 +433,13 @@
                     <a href="#deny-ghost-to-be-linkable" class="toc-h2 toc-link" data-title="Deny ghost to be linkable">Deny ghost to be linkable</a>
                   </li>
                   <li>
-                    <a href="#add-ghost-to-primary" class="toc-h2 toc-link" data-title="Add ghost to primary">Add ghost to primary</a>
+                    <a href="#add-morphed-ghost" class="toc-h2 toc-link" data-title="Add morphed Ghost">Add morphed Ghost</a>
                   </li>
                   <li>
-                    <a href="#remove-ghost-from-primary" class="toc-h2 toc-link" data-title="Remove ghost from primary">Remove ghost from primary</a>
+                    <a href="#remove-morphed-ghost" class="toc-h2 toc-link" data-title="Remove morphed Ghost">Remove morphed Ghost</a>
                   </li>
                   <li>
-                    <a href="#give-read-access" class="toc-h2 toc-link" data-title="Give read access">Give read access</a>
+                    <a href="#add-read-access" class="toc-h2 toc-link" data-title="Add read access">Add read access</a>
                   </li>
                   <li>
                     <a href="#remove-read-access" class="toc-h2 toc-link" data-title="Remove read access">Remove read access</a>
@@ -1843,7 +1843,7 @@ imageUrl | STRING | NO | Image which can represent service
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/add</code></strong></p>
+<p><strong><code>POST /api/services/ghosts/add</code></strong></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1903,14 +1903,18 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>RESPONSE</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domainName"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"serviceName"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ghostID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"mapID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domainName"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"serviceName"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ghostID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mapID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><strong><code>POST /api/ghosts</code></strong></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -1947,7 +1951,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/remove <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/delete <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -1961,10 +1965,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/remove</code></strong></p>
+<p><strong><code>POST /api/ghosts/delete</code></strong></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2011,7 +2017,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/untied <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/pending <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2023,15 +2029,19 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>RESPONSE</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domainName"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"serviceName"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ghostID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domainName"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"serviceName"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ghostID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/untied</code></strong></p>
+<p><strong><code>POST /api/ghosts/pending</code></strong></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2078,7 +2088,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/accept <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/pending/accept <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2093,6 +2103,8 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2100,10 +2112,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p>Server got your request, but something went wrong</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somethin went wrong"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/accept</code></strong></p>
+<p><strong><code>POST /api/ghosts/pending/accept</code></strong></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2156,7 +2170,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/reject <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/pending/reject <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2171,6 +2185,8 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2178,10 +2194,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p>Server got your request, but something went wrong</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somethin went wrong"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/reject</code></strong></p>
+<p><strong><code>POST /api/ghosts/pending/reject</code></strong></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2283,7 +2301,9 @@ imageUrl | STRING | NO | Image which can represent service
 <p>Server got your request, but something went wrong</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somethin went wrong"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
 <p><strong><code>POST /api/ghosts/status</code></strong></p>
@@ -2339,7 +2359,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/add-map-id <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/map-id/add <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2354,10 +2374,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/add-map-id</code></strong></p>
+<p><strong><code>POST /api/ghosts/map-id/add</code></strong></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2410,7 +2432,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/generate-map-id <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/map-id/generate <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2424,10 +2446,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/generate-map-id</code></strong></p>
+<p><strong><code>POST /api/ghosts/map-id/generate</code></strong></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2490,6 +2514,8 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
@@ -2566,6 +2592,8 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
@@ -2616,7 +2644,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/allow-link <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/link/allow <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2631,10 +2659,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/allow link</code></strong></p>
+<p><strong><code>POST /api/ghosts/link/allow</code></strong></p>
 <h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2687,7 +2717,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/deny-link <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/link/deny <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2702,10 +2732,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/deny-link</code></strong></p>
+<p><strong><code>POST /api/ghosts/link/deny</code></strong></p>
 <h3 id='query-parameters-12'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2752,13 +2784,13 @@ imageUrl | STRING | NO | Image which can represent service
 <td><code>domainName/serviceName</code></td>
 </tr>
 </tbody></table>
-<h2 id='add-ghost-to-primary'>Add ghost to primary</h2>
-<p>Ths endpoint will add ghost to a primary service ghost.</p>
+<h2 id='add-morphed-ghost'>Add morphed Ghost</h2>
+<p>Ths endpoint will add ghost to current ghost. User able to receive data from morphed ghosts.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/add-primary <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/morphed/add <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2775,10 +2807,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/add-primary</code></strong></p>
+<p><strong><code>POST /api/ghosts/morphed/add</code></strong></p>
 <h3 id='query-parameters-13'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2837,13 +2871,13 @@ imageUrl | STRING | NO | Image which can represent service
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='remove-ghost-from-primary'>Remove ghost from primary</h2>
-<p>Ths endpoint will remove ghost from a primary service ghost.</p>
+<h2 id='remove-morphed-ghost'>Remove morphed Ghost</h2>
+<p>Ths endpoint will romove ghost current current ghost. User will no longer receive data from removed morphed ghosts.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/remove-primary <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/morphed/remove <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2860,10 +2894,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/add-primary</code></strong></p>
+<p><strong><code>POST /api/ghosts/morphed/remove</code></strong></p>
 <h3 id='query-parameters-14'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2922,13 +2958,13 @@ imageUrl | STRING | NO | Image which can represent service
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='give-read-access'>Give read access</h2>
+<h2 id='add-read-access'>Add read access</h2>
 <p>Ths endpoint will give another user a read access to an object he doesn&#39;t own.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/give-read-access <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/read-access/add <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -2943,10 +2979,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/give-read-access</code></strong></p>
+<p><strong><code>POST /api/ghosts/read-access/add</code></strong></p>
 <h3 id='query-parameters-15'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2999,7 +3037,7 @@ imageUrl | STRING | NO | Image which can represent service
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/remove-read-access <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/ghosts/read-access/remove <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domainName":"{{domainName}}",
@@ -3014,10 +3052,12 @@ imageUrl | STRING | NO | Image which can represent service
 <p><strong>RESPONSE</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
-<p><strong><code>POST /api/ghosts/remove-read-access</code></strong></p>
+<p><strong><code>POST /api/ghosts/read-access/remove</code></strong></p>
 <h3 id='query-parameters-16'>Query Parameters</h3>
 <table><thead>
 <tr>
