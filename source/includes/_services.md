@@ -427,3 +427,44 @@ rootDomain | STRING | YES | For example cioty.com
 service | STRING | YES |
 token | STRING | YES |
 links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domain/service`
+
+## Add ghosts
+Ths endpoint will add ghosts to your service.
+
+> **REQUEST**
+
+```shell
+curl -X POST https://synxhive.com/api/services/ghosts/add \ 
+-H "Content-Type: application/json" \ 
+-d '{
+  "domainName":"{{domainName}}",
+  "rootDomain":"{{rootDomain}}",
+  "serviceName":"{{serviceName}}",
+  "token":"{{token}}",
+  "quantity":"{{quantity}}"
+}'
+```
+
+> **RESPONSE**
+
+```json
+{
+  "data": null,
+  "error": false,
+  "message": "Success"
+}
+```
+
+### HTTP Request
+
+**`POST /api/ghosts/add`**
+
+### Query Parameters
+
+Parameter | Type | Mandatory | Description
+--------- | ---- | --------- | -----------
+domainName | STRING | YES |
+rootDomain | STRING | YES | For example cioty.com
+serviceName | STRING | YES |
+token | STRING | YES |
+quantity | STRING | YES |

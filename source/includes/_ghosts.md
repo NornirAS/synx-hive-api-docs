@@ -42,45 +42,6 @@ domainName | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
-## Add ghosts
-Ths endpoint will add ghosts to your service.
-
-> **REQUEST**
-
-```shell
-curl -X POST https://synxhive.com/api/ghosts/add \ 
--H "Content-Type: application/json" \ 
--d '{
-  "domainName":"{{domainName}}",
-  "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
-  "token":"{{token}}",
-  "quantity":"{{quantity}}"
-}'
-```
-
-> **RESPONSE**
-
-```json
-{
-  "message": "Success"
-}
-```
-
-### HTTP Request
-
-**`POST /api/ghosts/add`**
-
-### Query Parameters
-
-Parameter | Type | Mandatory | Description
---------- | ---- | --------- | -----------
-domainName | STRING | YES |
-rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
-token | STRING | YES |
-quantity | STRING | YES |
-
 ## Remove ghosts
 Ths endpoint will remove ghost by it's ID from service.
 
