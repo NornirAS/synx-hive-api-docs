@@ -457,7 +457,7 @@ curl -X POST https://synxhive.com/api/services/ghosts/add \
 
 ### HTTP Request
 
-**`POST /api/ghosts/add`**
+**`POST /api/services/ghosts/add`**
 
 ### Query Parameters
 
