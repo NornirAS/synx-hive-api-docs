@@ -20,14 +20,18 @@ curl -X POST https://synxhive.com/api/ghosts \
 > **RESPONSE**
 
 ```json
-[
-  {
-    "domain": "domainName",
-    "service": "serviceName",
-    "ghostID": "1",
-    "mapID": null
-  }
-]
+{
+  "data":[
+    {
+      "domain": "domainName",
+      "service": "serviceName",
+      "ghostID": "1",
+      "mapID": null
+    }
+  ],
+  "error": false,
+  "message": "Success"
+}
 ```
 
 ### HTTP Request
@@ -48,7 +52,7 @@ Ths endpoint will remove ghost by it's ID from service.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/remove \ 
+curl -X POST https://synxhive.com/api/ghosts/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -63,13 +67,15 @@ curl -X POST https://synxhive.com/api/ghosts/remove \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/remove`**
+**`POST /api/ghosts/delete`**
 
 ### Query Parameters
 
@@ -87,7 +93,7 @@ Ths endpoint will give the list of ghosts waiting for your approval.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/untied \ 
+curl -X POST https://synxhive.com/api/ghosts/pending \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -100,18 +106,22 @@ curl -X POST https://synxhive.com/api/ghosts/untied \
 > **RESPONSE**
 
 ```json
-[
-  {
-    "domain": "domainName",
-    "service": "serviceName",
-    "ghostID": "1"
-  }
-]
+{
+  "data":[
+    {
+      "domain": "domainName",
+      "service": "serviceName",
+      "ghostID": "1"
+    }
+  ],
+  "error": false,
+  "message": "Success"
+}
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/untied`**
+**`POST /api/ghosts/pending`**
 
 ### Query Parameters
 
@@ -129,7 +139,7 @@ Ths endpoint will accept ghost.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/accept \ 
+curl -X POST https://synxhive.com/api/ghosts/pending/accept \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -145,6 +155,8 @@ curl -X POST https://synxhive.com/api/ghosts/accept \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
@@ -153,13 +165,15 @@ curl -X POST https://synxhive.com/api/ghosts/accept \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Somethin went wrong",
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/accept`**
+**`POST /api/ghosts/pending/accept`**
 
 ### Query Parameters
 
@@ -178,7 +192,7 @@ Ths endpoint will reject ghost.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/reject \ 
+curl -X POST https://synxhive.com/api/ghosts/pending/reject \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -194,6 +208,8 @@ curl -X POST https://synxhive.com/api/ghosts/reject \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
@@ -202,13 +218,15 @@ curl -X POST https://synxhive.com/api/ghosts/reject \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Somethin went wrong",
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/reject`**
+**`POST /api/ghosts/pending/reject`**
 
 ### Query Parameters
 
@@ -278,7 +296,9 @@ curl -X POST https://synxhive.com/api/ghosts/status \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Somethin went wrong",
 }
 ```
 
@@ -303,7 +323,7 @@ Ths endpoint will add custom mapID to a ghost.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/add-map-id \ 
+curl -X POST https://synxhive.com/api/ghosts/map-id/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -319,13 +339,15 @@ curl -X POST https://synxhive.com/api/ghosts/add-map-id \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/add-map-id`**
+**`POST /api/ghosts/map-id/add`**
 
 ### Query Parameters
 
@@ -344,7 +366,7 @@ Ths endpoint will generate mapID to a ghost.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/generate-map-id \ 
+curl -X POST https://synxhive.com/api/ghosts/map-id/generate \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -359,13 +381,15 @@ curl -X POST https://synxhive.com/api/ghosts/generate-map-id \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/generate-map-id`**
+**`POST /api/ghosts/map-id/generate`**
 
 ### Query Parameters
 
@@ -400,6 +424,8 @@ curl -X POST https://synxhive.com/api/ghosts/transfer \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
@@ -441,6 +467,8 @@ curl -X POST https://synxhive.com/api/ghosts/disable-data \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
@@ -465,7 +493,7 @@ Ths endpoint will allow ghost to share data with primary service who added link 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/allow-link \ 
+curl -X POST https://synxhive.com/api/ghosts/link/allow \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -481,13 +509,15 @@ curl -X POST https://synxhive.com/api/ghosts/allow-link \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/allow link`**
+**`POST /api/ghosts/link/allow`**
 
 ### Query Parameters
 
@@ -506,7 +536,7 @@ Ths endpoint will deny ghost to share data with primary service who added link t
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/deny-link \ 
+curl -X POST https://synxhive.com/api/ghosts/link/deny \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -522,13 +552,15 @@ curl -X POST https://synxhive.com/api/ghosts/deny-link \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/deny-link`**
+**`POST /api/ghosts/link/deny`**
 
 ### Query Parameters
 
@@ -541,13 +573,13 @@ token | STRING | YES |
 ghostID | STRING | YES |
 linkedFrom | STRING | YES | `domainName/serviceName`
 
-## Add ghost to primary
-Ths endpoint will add ghost to a primary service ghost.
+## Add morphed Ghost
+Ths endpoint will add ghost to current ghost. User able to receive data from morphed ghosts.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/add-primary \ 
+curl -X POST https://synxhive.com/api/ghosts/morphed/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -565,13 +597,15 @@ curl -X POST https://synxhive.com/api/ghosts/add-primary \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/add-primary`**
+**`POST /api/ghosts/morphed/add`**
 
 ### Query Parameters
 
@@ -586,13 +620,13 @@ refDomain | STRING | YES |
 refService | STRING | YES |
 refGhostID | STRING | YES |
 
-## Remove ghost from primary
-Ths endpoint will remove ghost from a primary service ghost.
+## Remove morphed Ghost
+Ths endpoint will romove ghost current current ghost. User will no longer receive data from removed morphed ghosts.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/remove-primary \ 
+curl -X POST https://synxhive.com/api/ghosts/morphed/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -610,13 +644,15 @@ curl -X POST https://synxhive.com/api/ghosts/remove-primary \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/add-primary`**
+**`POST /api/ghosts/morphed/remove`**
 
 ### Query Parameters
 
@@ -631,13 +667,13 @@ refDomain | STRING | YES |
 refService | STRING | YES |
 refGhostID | STRING | YES |
 
-## Give read access
+## Add read access
 Ths endpoint will give another user a read access to an object he doesn't own.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/give-read-access \ 
+curl -X POST https://synxhive.com/api/ghosts/read-access/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -653,13 +689,15 @@ curl -X POST https://synxhive.com/api/ghosts/give-read-access \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/give-read-access`**
+**`POST /api/ghosts/read-access/add`**
 
 ### Query Parameters
 
@@ -678,7 +716,7 @@ Ths endpoint will remove from another user a read access to an object he doesn't
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/ghosts/remove-read-access \ 
+curl -X POST https://synxhive.com/api/ghosts/read-access/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -694,13 +732,15 @@ curl -X POST https://synxhive.com/api/ghosts/remove-read-access \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
 }
 ```
 
 ### HTTP Request
 
-**`POST /api/ghosts/remove-read-access`**
+**`POST /api/ghosts/read-access/remove`**
 
 ### Query Parameters
 
