@@ -20,18 +20,32 @@ curl -X POST https://synxhive.com/api/services \
 > **RESPONSE**
 
 ```json
-[
-  {
-    "domain": "example",
-    "service": "example",
-    "dataSchema": "<RTW><TXT></TXT></RTW>",
-    "ghosts": "0",
-    "commandSchema": "<CMD><ACTION></ACTION><PARAM1></PARAM1><PARAM2></PARAM2></CMD>",
-    "timeout": "90",
-    "postScript": "aGVsbG8=",
-    "preScript": "aGVsbG8="
-  }
-]
+{
+  "data": [
+    {
+      "domain": "example",
+      "service": "example",
+      "dataSchema": "<RTW><TXT></TXT></RTW>",
+      "ghosts": "0",
+      "commandSchema": "<CMD><ACTION></ACTION><PARAM1></PARAM1><PARAM2></PARAM2></CMD>",
+      "timeout": "90",
+      "postScript": "aGVsbG8=",
+      "preScript": "aGVsbG8="
+    }
+  ],
+  "error": false,
+  "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
+}
 ```
 
 ### HTTP Request
@@ -83,7 +97,19 @@ curl -X POST https://synxhive.com/api/services/create \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -141,7 +167,19 @@ curl -X POST https://synxhive.com/api/services/update \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -185,7 +223,19 @@ curl -X POST https://synxhive.com/api/services/remove \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -414,6 +464,16 @@ curl -X POST https://synxhive.com/api/services/links/update \
 }
 ```
 
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
+}
+```
+
 ### HTTP Request
 
 **`POST /api/services/links/update`**
@@ -452,6 +512,16 @@ curl -X POST https://synxhive.com/api/services/ghosts/add \
   "data": null,
   "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
