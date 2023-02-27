@@ -56,7 +56,7 @@ curl -X POST https://synxhive.com/api/services \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
@@ -212,9 +212,9 @@ This endpoint will remove a service.
 curl -X POST https://synxhive.com/api/services/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domain":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "service":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}"
 }'
 ```
@@ -261,9 +261,9 @@ This endpoint will give micropage data.
 curl -X POST https://synxhive.com/api/services/micropage \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}"
+  "service":"{{service}}"
 }'
 ```
 
@@ -305,9 +305,9 @@ curl -X POST https://synxhive.com/api/services/micropage \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 
 ## Update micropage
 This endpoint will update a service micropage.
@@ -318,9 +318,9 @@ This endpoint will update a service micropage.
 curl -X POST https://synxhive.com/api/services/micropage-update \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}"
+  "service":"{{service}}"
   "token":"{{token}}",
   "description":"{{serviceDescription}}",
   "imageURL":"{{imageUrl}}",
@@ -345,9 +345,9 @@ curl -X POST https://synxhive.com/api/services/micropage-update \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 serviceDescription | STRING | NO |
 schemaDesciption | OBJECT | NO | Stringified. See example below
@@ -497,9 +497,9 @@ Ths endpoint will add ghosts to your service.
 curl -X POST https://synxhive.com/api/services/ghosts/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "quantity":"{{quantity}}"
 }'
@@ -533,8 +533,8 @@ curl -X POST https://synxhive.com/api/services/ghosts/add \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 quantity | STRING | YES |

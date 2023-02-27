@@ -11,7 +11,7 @@ Ths endpoint will give you the list of all your ghosts.
 curl -X POST https://synxhive.com/api/ghosts \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}"
 }'
@@ -23,8 +23,8 @@ curl -X POST https://synxhive.com/api/ghosts \
 {
   "data":[
     {
-      "domain": "domainName",
-      "service": "serviceName",
+      "domain": "domain",
+      "service": "service",
       "ghostID": "1",
       "mapID": null
     }
@@ -42,7 +42,7 @@ curl -X POST https://synxhive.com/api/ghosts \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 token | STRING | YES |
 
@@ -55,9 +55,9 @@ Ths endpoint will remove ghost by it's ID from service.
 curl -X POST https://synxhive.com/api/ghosts/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}"
 }'
@@ -81,9 +81,9 @@ curl -X POST https://synxhive.com/api/ghosts/delete \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 
@@ -96,7 +96,7 @@ Ths endpoint will give the list of ghosts waiting for your approval.
 curl -X POST https://synxhive.com/api/ghosts/pending \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
   "token":"{{token}}",
   "username":"{{username}}"
@@ -109,8 +109,8 @@ curl -X POST https://synxhive.com/api/ghosts/pending \
 {
   "data":[
     {
-      "domain": "domainName",
-      "service": "serviceName",
+      "domain": "domain",
+      "service": "service",
       "ghostID": "1"
     }
   ],
@@ -127,9 +127,9 @@ curl -X POST https://synxhive.com/api/ghosts/pending \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 
@@ -142,9 +142,9 @@ Ths endpoint will accept ghost.
 curl -X POST https://synxhive.com/api/ghosts/pending/accept \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}"
@@ -179,9 +179,9 @@ curl -X POST https://synxhive.com/api/ghosts/pending/accept \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 ghostID | STRING | YES |
@@ -195,9 +195,9 @@ Ths endpoint will reject ghost.
 curl -X POST https://synxhive.com/api/ghosts/pending/reject \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}"
@@ -232,9 +232,9 @@ curl -X POST https://synxhive.com/api/ghosts/pending/reject \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 ghostID | STRING | YES |
@@ -248,9 +248,9 @@ Ths endpoint will give you the ghost status.
 curl -X POST https://synxhive.com/api/ghosts/status \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}"
@@ -310,9 +310,9 @@ curl -X POST https://synxhive.com/api/ghosts/status \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 ghostID | STRING | YES |
@@ -326,9 +326,9 @@ Ths endpoint will add custom mapID to a ghost.
 curl -X POST https://synxhive.com/api/ghosts/map-id/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}",
   "mapID":"{{mapID}}"
@@ -353,9 +353,9 @@ curl -X POST https://synxhive.com/api/ghosts/map-id/add \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 mapID | false | Your custom unique ID for the ghost
@@ -369,9 +369,9 @@ Ths endpoint will generate mapID to a ghost.
 curl -X POST https://synxhive.com/api/ghosts/map-id/generate \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}"
 }'
@@ -395,9 +395,9 @@ curl -X POST https://synxhive.com/api/ghosts/map-id/generate \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 
@@ -410,9 +410,9 @@ Ths endpoint will change owner of a ghost, new user should accept or rejcet the 
 curl -X POST https://synxhive.com/api/ghosts/transfer \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}",
@@ -438,9 +438,9 @@ curl -X POST https://synxhive.com/api/ghosts/transfer \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES |
 ghostID | STRING | YES |
@@ -455,9 +455,9 @@ Ths endpoint will disable incomming data for a ghost.
 curl -X POST https://synxhive.com/api/ghosts/disable-data \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}"
 }'
@@ -481,9 +481,9 @@ curl -X POST https://synxhive.com/api/ghosts/disable-data \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 
@@ -496,9 +496,9 @@ Ths endpoint will allow ghost to share data with primary service who added link 
 curl -X POST https://synxhive.com/api/ghosts/link/allow \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}",
   "linkedFrom":"{{linkedFrom}}"
@@ -523,12 +523,12 @@ curl -X POST https://synxhive.com/api/ghosts/link/allow \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
-linkedFrom | STRING | YES | `domainName/serviceName`
+linkedFrom | STRING | YES | `domain/service`
 
 ## Deny ghost to be linkable
 Ths endpoint will deny ghost to share data with primary service who added link to it.
@@ -539,9 +539,9 @@ Ths endpoint will deny ghost to share data with primary service who added link t
 curl -X POST https://synxhive.com/api/ghosts/link/deny \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}",
   "linkedFrom":"{{linkedFrom}}"
@@ -566,12 +566,12 @@ curl -X POST https://synxhive.com/api/ghosts/link/deny \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
-linkedFrom | STRING | YES | `domainName/serviceName`
+linkedFrom | STRING | YES | `domain/service`
 
 ## Add morphed Ghost
 Ths endpoint will add ghost to current ghost. User able to receive data from morphed ghosts.
@@ -582,9 +582,9 @@ Ths endpoint will add ghost to current ghost. User able to receive data from mor
 curl -X POST https://synxhive.com/api/ghosts/morphed/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}",
   "refDomain":"{{refDomain}}",
@@ -611,9 +611,9 @@ curl -X POST https://synxhive.com/api/ghosts/morphed/add \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 refDomain | STRING | YES |
@@ -629,9 +629,9 @@ Ths endpoint will romove ghost current current ghost. User will no longer receiv
 curl -X POST https://synxhive.com/api/ghosts/morphed/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "ghostID":"{{ghostID}}",
   "refDomain":"{{refDomain}}",
@@ -658,9 +658,9 @@ curl -X POST https://synxhive.com/api/ghosts/morphed/remove \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 refDomain | STRING | YES |
@@ -676,9 +676,9 @@ Ths endpoint will give another user a read access to an object he doesn't own.
 curl -X POST https://synxhive.com/api/ghosts/read-access/add \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}"
@@ -703,9 +703,9 @@ curl -X POST https://synxhive.com/api/ghosts/read-access/add \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | who will get read access
 ghostID | STRING | YES |
@@ -719,9 +719,9 @@ Ths endpoint will remove from another user a read access to an object he doesn't
 curl -X POST https://synxhive.com/api/ghosts/read-access/remove \ 
 -H "Content-Type: application/json" \ 
 -d '{
-  "domainName":"{{domainName}}",
+  "domain":"{{domain}}",
   "rootDomain":"{{rootDomain}}",
-  "serviceName":"{{serviceName}}",
+  "service":"{{service}}",
   "token":"{{token}}",
   "username":"{{username}}",
   "ghostID":"{{ghostID}}"
@@ -746,9 +746,9 @@ curl -X POST https://synxhive.com/api/ghosts/read-access/remove \
 
 Parameter | Type | Mandatory | Description
 --------- | ---- | --------- | -----------
-domainName | STRING | YES |
+domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
-serviceName | STRING | YES |
+service | STRING | YES |
 token | STRING | YES |
 username | STRING | YES | from who to remove read access
 ghostID | STRING | YES |
