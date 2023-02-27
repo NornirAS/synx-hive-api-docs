@@ -2,13 +2,13 @@
 
 Authentication and identification system for heterogeneous networks.
 
-## Register user
+## Create user
 Ths endpoint will trigger email verification. You should check your email for verification link.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/create-user \ 
+curl -X POST https://synxhive.com/api/synxpass/user/create \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "username": "{{username}}",
@@ -22,7 +22,9 @@ curl -X POST https://synxhive.com/api/synxpass/create-user \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -30,7 +32,9 @@ curl -X POST https://synxhive.com/api/synxpass/create-user \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -40,7 +44,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 ### HTTP Request
 
-**`POST /api/synxpass/create-user`**
+**`POST /api/synxpass/user/create`**
 
 ### Query Parameters
 
@@ -57,7 +61,7 @@ This endpoint will verify your email. After that you can continue registraton pr
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/verify-user \ 
+curl -X POST https://synxhive.com/api/synxpass/user/verify \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "username": "{{username}}",
@@ -70,7 +74,9 @@ curl -X POST https://synxhive.com/api/synxpass/verify-user \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -78,7 +84,9 @@ curl -X POST https://synxhive.com/api/synxpass/verify-user \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -88,7 +96,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 ### HTTP request
 
-**`POST /api/synxpass/verify-user`**
+**`POST /api/synxpass/user/verify`**
 
 ### Query Parameters
 
@@ -104,7 +112,7 @@ This endpoint will finally register user in the system.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/register-user \ 
+curl -X POST https://synxhive.com/api/synxpass/user/register \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "rootDomain": "{{rootDomain}}",
@@ -118,7 +126,9 @@ curl -X POST https://synxhive.com/api/synxpass/register-user \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -126,7 +136,9 @@ curl -X POST https://synxhive.com/api/synxpass/register-user \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -136,7 +148,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 ### HTTP request
 
-**`POST /api/synxpass/register-user`**
+**`POST /api/synxpass/user/register`**
 
 ### Query Parameters
 
@@ -153,7 +165,7 @@ This endpoint will give you a token.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/get-token \ 
+curl -X POST https://synxhive.com/api/synxpass/user/token \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "username": "{{username}}",
@@ -165,7 +177,9 @@ curl -X POST https://synxhive.com/api/synxpass/get-token \
 
 ```json
 {
-  "token": "aToken_yourToken"
+  "data": "your_token",
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -173,13 +187,15 @@ curl -X POST https://synxhive.com/api/synxpass/get-token \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
 ### HTTP request
 
-**`POST /api/synxpass/get-token`**
+**`POST /api/synxpass/user/token`**
 
 ### Query Parameters
 
@@ -188,13 +204,13 @@ Parameter | Type | Mandatory | Description
 username | STRING | YES | Email
 password | STRING | YES |
 
-## Forgot password
+## Recover password
 This endpoint will send you an email with the temporary password which you should use to create new password in the next request.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/forgot-password \ 
+curl -X POST https://synxhive.com/api/synxpass/user/password/recover \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "username": "{{username}}"
@@ -205,7 +221,9 @@ curl -X POST https://synxhive.com/api/synxpass/forgot-password \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -213,13 +231,15 @@ curl -X POST https://synxhive.com/api/synxpass/forgot-password \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
 ### HTTP request
 
-**`POST /api/synxpass/forgot-password`**
+**`POST /api/synxpass/user/password/recover`**
 
 ### Query Parameters
 
@@ -233,7 +253,7 @@ This endpoint allow you to create a new password.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/new-password \ 
+curl -X POST https://synxhive.com/api/synxpass/user/password/new \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "username": "{{username}}",
@@ -246,7 +266,9 @@ curl -X POST https://synxhive.com/api/synxpass/new-password \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -254,13 +276,15 @@ curl -X POST https://synxhive.com/api/synxpass/new-password \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
 ### HTTP request
 
-**`POST /api/synxpass/new-password`**
+**`POST /api/synxpass/user/password/new`**
 
 ### Query Parameters
 
@@ -276,7 +300,7 @@ This endpoint will remove user from the system.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/synxpass/delete-user \ 
+curl -X POST https://synxhive.com/api/synxpass/user/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "rootDomain": "{{rootDomain}}",
@@ -290,7 +314,9 @@ curl -X POST https://synxhive.com/api/synxpass/delete-user \
 
 ```json
 {
-  "message": "Success"
+  "data": null,
+  "error": false,
+  "message": "Success",
 }
 ```
 
@@ -298,7 +324,9 @@ curl -X POST https://synxhive.com/api/synxpass/delete-user \
 
 ```json
 {
-  "error": "Error"
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -308,7 +336,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 
 ### HTTP request
 
-**`POST /api/synxpass/delete-user`**
+**`POST /api/synxpass/user/delete`**
 
 ### Query Parameters
 
