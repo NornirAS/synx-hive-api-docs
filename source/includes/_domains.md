@@ -20,12 +20,16 @@ curl -X POST https://synxhive.com/api/domains \
 > **RESPONSE**
 
 ```json
-[
-  {
-    "domain": "domainName",
-    "active": true
-  }
-]
+{
+  "data":[
+    {
+      "domain": "domainName",
+      "active": true
+    }
+  ],
+  "error": false,
+  "message": "Success"
+}
 ```
 
 ### HTTP Request
@@ -60,7 +64,19 @@ curl -X POST https://synxhive.com/api/domains/create \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -97,7 +113,19 @@ curl -X POST https://synxhive.com/api/domains/delete \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -135,7 +163,19 @@ curl -X POST https://synxhive.com/api/domains/activate \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
@@ -163,7 +203,7 @@ Ths endpoint will deactivate a subdomain.
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/domains/dactivate \ 
+curl -X POST https://synxhive.com/api/domains/deactivate \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domainName":"{{domainName}}",
@@ -178,7 +218,19 @@ curl -X POST https://synxhive.com/api/domains/dactivate \
 
 ```json
 {
+  "data": null,
+  "error": false,
   "message": "Success"
+}
+```
+
+> Server got your request, but something went wrong
+
+```json
+{
+  "data": null,
+  "error": true,
+  "message": "Backend did not understand your request.",
 }
 ```
 
