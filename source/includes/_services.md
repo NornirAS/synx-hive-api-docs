@@ -123,7 +123,7 @@ username | STRING | YES |
 authToken | STRING | YES |
 dataSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
-timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
+timeout | STRING, NUMBER | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
 preScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
 postScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 
@@ -195,11 +195,10 @@ domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 service | STRING | YES |
 token | STRING | YES |
-username | STRING | YES | 
 authToken | STRING | YES |
 dataSchema | STRING | YES | See example below
 commandSchema | STRING | NO | See example below
-timeout | STRING | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
+timeout | STRING, NUMBER | YES | Time in seconds when connection will go idle withou incomming data `Default: 30`
 preScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
 postScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 
@@ -424,7 +423,7 @@ curl -X POST https://synxhive.com/api/services/links \
 
 ### HTTP Request
 
-**`POST /api/services/links/update`**
+**`POST /api/services/links`**
 
 ### Query Parameters
 
@@ -434,7 +433,6 @@ domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 service | STRING | YES |
 token | STRING | YES |
-links | STRING[] | YES | Array where each link is a `STRING`, link is written as `domain/service`
 
 
 ## Update links
@@ -537,4 +535,4 @@ domain | STRING | YES |
 rootDomain | STRING | YES | For example cioty.com
 service | STRING | YES |
 token | STRING | YES |
-quantity | STRING | YES |
+quantity | STRING, NUMBER | YES |

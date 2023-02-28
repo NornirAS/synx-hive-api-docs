@@ -87,7 +87,7 @@ service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
 
-## Untied ghosts
+## Pending ghosts
 Ths endpoint will give the list of ghosts waiting for your approval.
 
 > **REQUEST**
@@ -358,7 +358,7 @@ rootDomain | STRING | YES | For example cioty.com
 service | STRING | YES |
 token | STRING | YES |
 ghostID | STRING | YES |
-mapID | false | Your custom unique ID for the ghost
+mapID | STRING | YES | Your custom unique ID for the ghost
 
 ## Generate mapID to a ghost
 Ths endpoint will generate mapID to a ghost.
