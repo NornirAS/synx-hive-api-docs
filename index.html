@@ -403,7 +403,7 @@
                     <a href="#remove-ghosts" class="toc-h2 toc-link" data-title="Remove ghosts">Remove ghosts</a>
                   </li>
                   <li>
-                    <a href="#untied-ghosts" class="toc-h2 toc-link" data-title="Untied ghosts">Untied ghosts</a>
+                    <a href="#pending-ghosts" class="toc-h2 toc-link" data-title="Pending ghosts">Pending ghosts</a>
                   </li>
                   <li>
                     <a href="#accept-ghost" class="toc-h2 toc-link" data-title="Accept ghost">Accept ghost</a>
@@ -1453,7 +1453,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 <tr>
 <td>timeout</td>
-<td>STRING</td>
+<td>STRING, NUMBER</td>
 <td>YES</td>
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
@@ -1555,12 +1555,6 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td></td>
 </tr>
 <tr>
-<td>username</td>
-<td>STRING</td>
-<td>YES</td>
-<td></td>
-</tr>
-<tr>
 <td>authToken</td>
 <td>STRING</td>
 <td>YES</td>
@@ -1580,7 +1574,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
 </tr>
 <tr>
 <td>timeout</td>
-<td>STRING</td>
+<td>STRING, NUMBER</td>
 <td>YES</td>
 <td>Time in seconds when connection will go idle withou incomming data <code>Default: 30</code></td>
 </tr>
@@ -1833,7 +1827,7 @@ imageUrl | STRING | NO | Image which can represent service
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
-<p><strong><code>POST /api/services/links/update</code></strong></p>
+<p><strong><code>POST /api/services/links</code></strong></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1866,12 +1860,6 @@ imageUrl | STRING | NO | Image which can represent service
 <td>STRING</td>
 <td>YES</td>
 <td></td>
-</tr>
-<tr>
-<td>links</td>
-<td>STRING[]</td>
-<td>YES</td>
-<td>Array where each link is a <code>STRING</code>, link is written as <code>domain/service</code></td>
 </tr>
 </tbody></table>
 <h2 id='update-links'>Update links</h2>
@@ -2019,7 +2007,7 @@ imageUrl | STRING | NO | Image which can represent service
 </tr>
 <tr>
 <td>quantity</td>
-<td>STRING</td>
+<td>STRING, NUMBER</td>
 <td>YES</td>
 <td></td>
 </tr>
@@ -2151,7 +2139,7 @@ imageUrl | STRING | NO | Image which can represent service
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='untied-ghosts'>Untied ghosts</h2>
+<h2 id='pending-ghosts'>Pending ghosts</h2>
 <p>Ths endpoint will give the list of ghosts waiting for your approval.</p>
 
 <blockquote>
@@ -2561,9 +2549,9 @@ imageUrl | STRING | NO | Image which can represent service
 </tr>
 <tr>
 <td>mapID</td>
-<td>false</td>
+<td>STRING</td>
+<td>YES</td>
 <td>Your custom unique ID for the ghost</td>
-<td></td>
 </tr>
 </tbody></table>
 <h2 id='generate-mapid-to-a-ghost'>Generate mapID to a ghost</h2>
