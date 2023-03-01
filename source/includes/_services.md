@@ -202,13 +202,13 @@ timeout | STRING, NUMBER | YES | Time in seconds when connection will go idle wi
 preScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data before it's get to the service 
 postScript | STRING | NO | `BASE64` encoded JavaScript code that will transform data when data will leave a service
 
-## Remove service
-This endpoint will remove a service.
+## Delete service
+This endpoint will delete a service.
 
 > **REQUEST**
 
 ```shell
-curl -X POST https://synxhive.com/api/services/remove \ 
+curl -X POST https://synxhive.com/api/services/delete \ 
 -H "Content-Type: application/json" \ 
 -d '{
   "domain":"{{domain}}",
@@ -240,7 +240,7 @@ curl -X POST https://synxhive.com/api/services/remove \
 
 ### HTTP Request
 
-**`POST /api/services/remove`**
+**`POST /api/services/delete`**
 
 ### Query Parameters
 
