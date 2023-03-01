@@ -380,7 +380,7 @@
                     <a href="#update-service" class="toc-h2 toc-link" data-title="Update service">Update service</a>
                   </li>
                   <li>
-                    <a href="#remove-service" class="toc-h2 toc-link" data-title="Remove service">Remove service</a>
+                    <a href="#delete-service" class="toc-h2 toc-link" data-title="Delete service">Delete service</a>
                   </li>
                   <li>
                     <a href="#get-links" class="toc-h2 toc-link" data-title="Get links">Get links</a>
@@ -1591,13 +1591,13 @@ This endpoint can be used only by the root domain owner as it require authToken.
 <td><code>BASE64</code> encoded JavaScript code that will transform data when data will leave a service</td>
 </tr>
 </tbody></table>
-<h2 id='remove-service'>Remove service</h2>
-<p>This endpoint will remove a service.</p>
+<h2 id='delete-service'>Delete service</h2>
+<p>This endpoint will delete a service.</p>
 
 <blockquote>
 <p><strong>REQUEST</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/remove <span class="se">\ </span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://synxhive.com/api/services/delete <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-d</span> <span class="s1">'{
   "domain":"{{domain}}",
@@ -1624,7 +1624,7 @@ This endpoint can be used only by the root domain owner as it require authToken.
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backend did not understand your request."</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
-<p><strong><code>POST /api/services/remove</code></strong></p>
+<p><strong><code>POST /api/services/delete</code></strong></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
